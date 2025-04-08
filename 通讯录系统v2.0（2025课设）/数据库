@@ -1,0 +1,12 @@
+-- 通讯录联系人表
+CREATE TABLE `contacts` (
+  `id` INT UNSIGNED AUTO_INCREMENT COMMENT '自增主键，用于唯一标识每条记录',
+  `name` VARCHAR(255) NOT NULL COMMENT '联系人姓名，与原代码m_Name对应',
+  `phone` VARCHAR(20) NOT NULL COMMENT '联系电话，限制长度避免无效数据',
+  `addr` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '单位地址，默认空字符串防脏数据',
+  `category` ENUM('办公', '个人') NOT NULL COMMENT '分类，ENUM约束保证数据有效性',
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间，用于审计',
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间，记录最后修改时间',
+  PRIMARY KEY (`id`), -- 主键
+  UNIQUE KEY `idx_unique_contact` (`name`, `category`) -- 组合唯一索引，替代原代码isContactExist检查
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='通讯录联系人表';
