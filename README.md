@@ -96,4 +96,4 @@ Fork项目仓库
 提交修改（git commit -m '添加新功能'）
 推送分支（git push origin feature/新功能）
 发起Pull Request
-## 课程设计成果 | 开发者：夏雨子卓 | 2025级计算机科学与技术专业
+## 课程设计成果 | 开发者：夏雨子卓 | 网络工程专业
